@@ -29,7 +29,7 @@ for year in top_recruit_lists:
     height += tree.xpath('//span[@class="height"]/text()')
     weight += tree.xpath('//span[@class="weight"]/text()')
     rating += tree.xpath('//span[@class="rating"]/text()')
-    college += tree.xpath('//img[@class="jsonly"]/@alt')
+    college += tree.xpath('//img[@class="jsonly"]/@title')
     hs_location += tree.xpath('//span[@class="meta"]/text()')
     recruit_year += [year] * len(tree.xpath('//a[@class="bold"]/text()'))
 
@@ -39,4 +39,4 @@ df = pd.DataFrame(index=names)
 df['hs_location'] = hs_location
 df['recruit_year'] = recruit_year
 
-print(names, pos, height, weight, rating)
+print(college)
